@@ -1,11 +1,11 @@
 import {
-  Text,
   Pressable,
+  PressableProps,
   StyleProp,
   ViewStyle,
   StyleSheet,
+  Text,
   ActivityIndicator,
-  PressableProps,
 } from 'react-native';
 import React from 'react';
 import {SvgImage} from './SvgImage';
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     alignSelf: 'center',
-    ...TypographyStyles.normalSemiBold,
+    ...TypographyStyles.RegularNormalSemiBold,
   },
   small: {
     backgroundColor: colors.primary.base,

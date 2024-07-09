@@ -1,4 +1,4 @@
-import {Dimensions as NativeSizes} from 'react-native';
+import { Dimensions as NativeSizes } from "react-native";
 
 const Dimensions = [NativeSizes.get('window'), NativeSizes.get('screen')];
 
@@ -20,3 +20,4 @@ export {
   windowHeight,
   windowWidth,
 };
+

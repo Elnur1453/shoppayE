@@ -1,55 +1,58 @@
-export class ImageResources {
-  static chevronLeft = require('./vectors/chevronLeft.svg');
-  static chevronRight = require('./vectors/chevronRight.svg');
-  static menu = require('./vectors/menu.svg');
-  static search = require('./vectors/search.svg');
-  static shoppingBag = require('./vectors/shoppingBag.svg');
-  static home = require('./vectors/home.svg');
-  static heart = require('./vectors/heart.svg');
-  static bell = require('./vectors/bell.svg');
-  static sliders = require('./vectors/sliders.svg');
-  static square = require('./vectors/square.svg');
-  static filter = require('./vectors/filter.svg');
-  static edit = require('./vectors/edit.svg');
-  static chevronDown = require('./vectors/chevronDown.svg');
-  static circle = require('./vectors/circle.svg');
-  static plus = require('./vectors/plus.svg');
-  static settings = require('./vectors/settings.svg');
-  static edit2 = require('./vectors/edit2.svg');
-  static star = require('./vectors/star.svg');
-  static camera = require('./vectors/camera.svg');
-  static user = require('./vectors/user.svg');
-  static mapPin = require('./vectors/mapPin.svg');
-  static shoppingCat = require('./vectors/shoppingCart.svg');
-  static creditCard = require('./vectors/creditCard.svg');
-  static info = require('./vectors/info.svg');
-  static logOut = require('./vectors/logOut.svg');
-  static mail = require('./vectors/mail.svg');
-  static calendar = require('./vectors/calendar.svg');
-  static smartphone = require('./vectors/smartphone.svg');
-  static lock = require('./vectors/lock.svg');
-  static twitter = require('./vectors/twitter.svg');
-  static facebook = require('./vectors/facebook.svg');
-  static check = require('./vectors/check.svg');
-  static minus = require('./vectors/minus.svg');
-  static plusCircle = require('./vectors/plusCircle.svg');
-  static messageCircle = require('./vectors/message-circle.svg');
-  static nike = require('./vectors/nike.svg');
-  static adidas = require('./vectors/adidas.svg');
-  static brand = require('./vectors/brand.svg');
-  static vans = require('./vectors/vans.svg');
-  static googleButton = require('./vectors/google.svg');
-  static facebookButton = require('./vectors/facebookk.svg');
-  static twitterButton = require('./vectors/twitterr.svg');
-  static eye = require('./vectors/eye.svg');
-  static eyeOff = require('./vectors/eye_off.svg');
-  static masterCard = require('./vectors/masterCard.svg');
-  static masterCardBlack = require('./vectors/masterCardBlack.svg');
-  static controlsButton = require('./vectors/controlsButton.svg');
-  static iconPlaceholder = require('./vectors/iconPlaceholder.svg');
-  static homeTab = require('./vectors/homeTab.svg');
-  static searchTab = require('./vectors/searchTab.svg');
-  static favoriteTab = require('./vectors/favoriteTab.svg');
-  static notificationTab = require('./vectors/notificationTab.svg');
-  static settingsTab = require('./vectors/settings.svg');
-}
+export const ImageResources = {
+  chevronLeft: require('./vectors/chevronLeft.svg'),
+  chevronRight: require('./vectors/chevronRight.svg'),
+  menu: require('./vectors/menu.svg'),
+  search: require('./vectors/search.svg'),
+  shoppingBag: require('./vectors/shoppingBag.svg'),
+  home: require('./vectors/home.svg'),
+  heart: require('./vectors/heart.svg'),
+  heartWhite: require('./vectors/heartWhite.svg'),
+  bell: require('./vectors/bell.svg'),
+  sliders: require('./vectors/sliders.svg'),
+  square: require('./vectors/square.svg'),
+  filter: require('./vectors/filter.svg'),
+  edit: require('./vectors/edit.svg'),
+  chevronDown: require('./vectors/chevronDown.svg'),
+  circle: require('./vectors/circle.svg'),
+  plus: require('./vectors/plus.svg'),
+  settings: require('./vectors/settings.svg'),
+  edit2: require('./vectors/edit2.svg'),
+  star: require('./vectors/star.svg'),
+  camera: require('./vectors/camera.svg'),
+  user: require('./vectors/user.svg'),
+  mapPin: require('./vectors/mapPin.svg'),
+  shoppingCart: require('./vectors/shoppingCart.svg'),
+  creditCard: require('./vectors/creditCard.svg'),
+  info: require('./vectors/info.svg'),
+  logOut: require('./vectors/logOut.svg'),
+  mail: require('./vectors/mail.svg'),
+  calendar: require('./vectors/calendar.svg'),
+  smartphone: require('./vectors/smartphone.svg'),
+  lock: require('./vectors/lock.svg'),
+  twitter: require('./vectors/twitter.svg'),
+  facebook: require('./vectors/facebook.svg'),
+  check: require('./vectors/check.svg'),
+  minus: require('./vectors/minus.svg'),
+  plusCircle: require('./vectors/plusCircle.svg'),
+  messageCircle: require('./vectors/message-circle.svg'),
+  nike: require('./vectors/nike.svg'),
+  adidas: require('./vectors/adidas.svg'),
+  brand: require('./vectors/brand.svg'),
+  vans: require('./vectors/vans.svg'),
+  googleButton: require('./vectors/google.svg'),
+  facebookButton: require('./vectors/facebookk.svg'),
+  twitterButton: require('./vectors/twitterr.svg'),
+  eye: require('./vectors/eye.svg'),
+  eyeOff: require('./vectors/eye_off.svg'),
+  masterCard: require('./vectors/masterCard.svg'),
+  masterCardBlack: require('./vectors/masterCardBlack.svg'),
+  controlsButton: require('./vectors/controlsButton.svg'),
+  iconPlaceholder: require('./vectors/iconPlaceholder.svg'),
+  homeTab: require('./vectors/homeTab.svg'),
+  searchTab: require('./vectors/searchTab.svg'),
+  favoriteTab: require('./vectors/favoriteTab.svg'),
+  notificationTab: require('./vectors/notificationTab.svg'),
+  settingsTab: require('./vectors/settings.svg'),
+  rightActionable: require('./vectors/rightActionable.svg'),
+  media: require('./vectors/media.svg'),
+};

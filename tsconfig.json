@@ -1,4 +1,5 @@
 {
+  "moduleResolution":"node",
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "target": "es2022",

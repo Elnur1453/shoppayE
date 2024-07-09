@@ -13,7 +13,8 @@ import {normalize} from 'theme/metrics';
 import {SvgImage, Resources} from './SvgImage';
 import {CommonStyles} from 'theme/commonStyles';
 import {TypographyStyles} from 'theme/typography';
-import {standardHitSlopSize} from 'theme/consts.styles';
+import {standardHitSlopSize} from '../theme/consts.styles';
+import {Button} from './Button';
 interface INavBar {
   title?: string;
   largeTitle?: string;

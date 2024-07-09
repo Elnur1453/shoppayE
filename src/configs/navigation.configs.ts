@@ -16,5 +16,6 @@ export const authStackScreenOption: NativeStackNavigationOptions = {
   contentStyle: {
     backgroundColor: colors.white,
     paddingHorizontal: normalize('horizontal', 24),
+    paddingBottom: normalize('vertical',28)
   },
 };
