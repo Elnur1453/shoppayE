@@ -21,7 +21,6 @@ import {normalize} from 'theme/metrics';
 import {TypographyStyles} from 'theme/typography';
 import {useForm} from 'react-hook-form';
 import {InputControlled} from 'components/InputControlled';
-import {Regex} from 'constants/regex';
 
 export interface ILoginForm {
   email: string;
@@ -34,21 +33,14 @@ export const LoginScreen: React.FC = () => {
     control,
     handleSubmit,
     formState: {errors, isSubmitting},
-  } = useForm<ILoginForm>();
-  const onSubmit = (data: ILoginForm) => console.log(data);
+  } = useForm<ILoginForm>({
+    defaultValues: {email: 'elnurnamaz@gmail.com', password: 'Elnur!123'},
+  });
+  const onSubmit = (data: ILoginForm) =>
+    new Promise(resolve => setTimeout(resolve, 2000));
 
   console.log(errors);
 
-  // const {
-  //   control,
-  //   handleSubmit,
-  //   formState: {errors, isSubmitting},
-  // } = useForm<ILoginForm>({
-  //   defaultValues: {
-  //     email: __DEV__ ? 'emilys@gmail.com' : '',
-  //     password: __DEV__ ? 'emilyspass' : '',
-  //   },
-  // });
   // const onSubmit = async (data: ILoginForm) => {
   //   const res = await axios({
   //     url: ENDPOINTS.auth.login,
@@ -85,16 +77,7 @@ export const LoginScreen: React.FC = () => {
             name={'email'}
             label="Email"
             type="text"
-            rules={{
-              required: {
-                message: 'Email is required',
-                value: true,
-              },
-              pattern: {
-                value: Regex.email,
-                message: 'Email is not valid',
-              },
-            }}
+            rules={FormRules.email}
             keyboardType="email-address"
             placeholder="Enter your email"
             errorMessage={errors.email?.message}
