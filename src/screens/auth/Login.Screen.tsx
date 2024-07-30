@@ -12,6 +12,7 @@ import {Linking} from 'react-native';
 import {CommonStyles} from 'theme/commonStyles';
 import {normalize} from 'theme/metrics';
 import {TypographyStyles} from 'theme/typography';
+import {useForm, Controller} from 'react-hook-form';
 
 
 export interface ILoginForm {
@@ -21,6 +22,18 @@ export interface ILoginForm {
 }
 
 export const LoginScreen: React.FC = () => {
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ILoginForm>()
+  const onSubmit = (data: ILoginForm) => console.log(data)
+
+  console.log(errors);
+
+
+
 
   // const {
   //   control,
@@ -57,8 +70,8 @@ export const LoginScreen: React.FC = () => {
         contentContainerStyle={CommonStyles.flex}>
        <NavBar largeTitle='Welcome!' leftIcon={ImageResources.chevronLeft} leftColor={colors.ink.base} leftOnPress={() => {}} />
         <View style={styles.inputs}>
-          <Input placeholder='Enter your email' label='Email' setValue={(value) => console.log(value)} keyboardType='email-address'/>
-          <Input placeholder='Enter your password' label='Password' setValue={(value) => console.log(value)} keyboardType='default' />
+          <Controller control={control} name={'email'} rules={{ required: true }} render={({ field: { onChange, onBlur, value } }) =>  <Input placeholder='Enter your email' label='Email' setValue={onChange} value={value} onBlur={onBlur} keyboardType='email-address' type='text' /> }/>
+          <Controller control={control} name={'password'} render={({ field: { onChange, onBlur, value } }) =>  <Input placeholder='Enter your password' label='Password' setValue={onChange} value={value} onBlur={onBlur} type='password' /> } />
         </View>
         <View style={styles.loginContainer}>
         <Button
@@ -68,7 +81,7 @@ export const LoginScreen: React.FC = () => {
             position={'center'}
             // loading={isSubmitting}
             // disabled={isSubmitting}
-            // onPress={handleSubmit(onSubmit)}
+            onPress={handleSubmit(onSubmit)}
           />
           <Text style={styles.singInText}>or sign in with</Text>
           <View style={styles.socialButton}>
