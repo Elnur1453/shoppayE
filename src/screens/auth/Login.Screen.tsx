@@ -1,4 +1,11 @@
-import {View, Text, ScrollView, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import React from 'react';
 import {SafeMainProvider} from 'containers/SafeMainProvider';
 import {NavBar} from 'components/NavBar';
@@ -6,14 +13,15 @@ import {ImageResources} from 'assets/VectorResources.g';
 import {TextLink} from 'components/TextLink';
 import {colors} from 'theme/colors';
 import {Button} from 'components/Button';
-import {Input} from 'components/Input';
+import {FormRules} from 'constants/formRules';
 import {SocialButton} from 'components/SocialButton';
 import {Linking} from 'react-native';
 import {CommonStyles} from 'theme/commonStyles';
 import {normalize} from 'theme/metrics';
 import {TypographyStyles} from 'theme/typography';
-import {useForm, Controller} from 'react-hook-form';
-
+import {useForm} from 'react-hook-form';
+import {InputControlled} from 'components/InputControlled';
+import {Regex} from 'constants/regex';
 
 export interface ILoginForm {
   email: string;
@@ -22,18 +30,14 @@ export interface ILoginForm {
 }
 
 export const LoginScreen: React.FC = () => {
-
   const {
     control,
     handleSubmit,
-    formState: { errors },
-  } = useForm<ILoginForm>()
-  const onSubmit = (data: ILoginForm) => console.log(data)
+    formState: {errors, isSubmitting},
+  } = useForm<ILoginForm>();
+  const onSubmit = (data: ILoginForm) => console.log(data);
 
   console.log(errors);
-
-
-
 
   // const {
   //   control,
@@ -64,23 +68,55 @@ export const LoginScreen: React.FC = () => {
   //   }
   return (
     <SafeMainProvider>
-      <ScrollView scrollEnabled={false}
+      <ScrollView
+        scrollEnabled={false}
         style={CommonStyles.flex}
         keyboardShouldPersistTaps={'handled'}
         contentContainerStyle={CommonStyles.flex}>
-       <NavBar largeTitle='Welcome!' leftIcon={ImageResources.chevronLeft} leftColor={colors.ink.base} leftOnPress={() => {}} />
+        <NavBar
+          largeTitle="Welcome!"
+          leftIcon={ImageResources.chevronLeft}
+          leftColor={colors.ink.base}
+          leftOnPress={() => {}}
+        />
         <View style={styles.inputs}>
-          <Controller control={control} name={'email'} rules={{ required: true }} render={({ field: { onChange, onBlur, value } }) =>  <Input placeholder='Enter your email' label='Email' setValue={onChange} value={value} onBlur={onBlur} keyboardType='email-address' type='text' /> }/>
-          <Controller control={control} name={'password'} render={({ field: { onChange, onBlur, value } }) =>  <Input placeholder='Enter your password' label='Password' setValue={onChange} value={value} onBlur={onBlur} type='password' /> } />
+          <InputControlled
+            control={control}
+            name={'email'}
+            label="Email"
+            type="text"
+            rules={{
+              required: {
+                message: 'Email is required',
+                value: true,
+              },
+              pattern: {
+                value: Regex.email,
+                message: 'Email is not valid',
+              },
+            }}
+            keyboardType="email-address"
+            placeholder="Enter your email"
+            errorMessage={errors.email?.message}
+          />
+          <InputControlled
+            control={control}
+            name={'password'}
+            label="Password"
+            type="password"
+            rules={FormRules.password}
+            placeholder="Enter your password"
+            errorMessage={errors.password?.message}
+          />
         </View>
         <View style={styles.loginContainer}>
-        <Button
+          <Button
             title={'Login'}
             size={'block'}
             type={'primary'}
             position={'center'}
-            // loading={isSubmitting}
-            // disabled={isSubmitting}
+            loading={isSubmitting}
+            disabled={isSubmitting}
             onPress={handleSubmit(onSubmit)}
           />
           <Text style={styles.singInText}>or sign in with</Text>
@@ -116,7 +152,6 @@ export const LoginScreen: React.FC = () => {
     </SafeMainProvider>
   );
 };
-
 
 const styles = StyleSheet.create({
   loginContainer: {
