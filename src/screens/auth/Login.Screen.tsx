@@ -21,6 +21,9 @@ import {normalize} from 'theme/metrics';
 import {TypographyStyles} from 'theme/typography';
 import {useForm} from 'react-hook-form';
 import {InputControlled} from 'components/InputControlled';
+import {NavigationParamList} from 'types/navigation.types';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Routes} from 'router/routes';
 
 export interface ILoginForm {
   email: string;
@@ -28,16 +31,22 @@ export interface ILoginForm {
   fullName: string;
 }
 
-export const LoginScreen: React.FC = () => {
+export const LoginScreen: React.FC<
+  NativeStackScreenProps<NavigationParamList, Routes.login>
+> = ({navigation}) => {
   const {
     control,
     handleSubmit,
     formState: {errors, isSubmitting},
   } = useForm<ILoginForm>({
-    defaultValues: {email: 'elnurnamaz@gmail.com', password: 'Elnur!123'},
+    defaultValues: {
+      email: __DEV__ ? 'elnz1453@gmail.com' : '',
+      password: __DEV__ ? 'Elnur!123' : '',
+    },
   });
   const onSubmit = (data: ILoginForm) =>
-    new Promise(resolve => setTimeout(resolve, 2000));
+    navigation.navigate(Routes.verification);
+  new Promise(resolve => setTimeout(resolve, 2000));
 
   console.log(errors);
 

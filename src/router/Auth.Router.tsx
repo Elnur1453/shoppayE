@@ -16,7 +16,7 @@ import {SignUpScreen} from 'screens/auth/SignUp.Screen';
 
 const AuthStack = createNativeStackNavigator<NavigationParamList>();
 
-const edges: Edges = {bottom: 'off', top: 'additive'};
+const edges: Edges = {bottom: 'off'};
 
 export const AuthRouter = () => {
   return (
