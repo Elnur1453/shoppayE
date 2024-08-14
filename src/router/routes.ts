@@ -8,4 +8,6 @@ export enum Routes {
   login = 'login',
   singUp = 'singUp',
   test = 'test',
+  paymentScreensTab = 'paymentScreensTab',
+  cards = 'cards',
 }

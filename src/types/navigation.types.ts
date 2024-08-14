@@ -11,6 +11,8 @@ export type NavigationParamList = {
   [Routes.singUp]: undefined;
   [Routes.register]: undefined;
   [Routes.paymentMethod]: undefined;
+  [Routes.paymentScreensTab]: undefined;
+  [Routes.cards]: undefined;
   [Routes.verification]: undefined;
   [Routes.test]: undefined;
 };

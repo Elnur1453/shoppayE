@@ -3,7 +3,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {WelcomeScreen} from 'screens/auth/Welcome.Screen';
 import {LoginScreen} from 'screens/auth/Login.Screen';
 import {VerificationScreen} from 'screens/auth/Verification.Screen';
-import {PaymentMethodScreen} from 'screens/auth/PaymentMethod.Screen';
 import {NavigationParamList} from 'types/navigation.types';
 import {
   authStackScreenOption,
@@ -13,6 +12,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {CommonStyles} from 'theme/commonStyles';
 import {Routes} from './routes';
 import {SignUpScreen} from 'screens/auth/SignUp.Screen';
+import {PaymentScreensTab} from 'screens/payments';
 
 const AuthStack = createNativeStackNavigator<NavigationParamList>();
 
@@ -23,7 +23,7 @@ export const AuthRouter = () => {
     <SafeAreaView style={CommonStyles.flex} edges={edges}>
       <AuthStack.Navigator
         screenOptions={authStackScreenOption}
-        initialRouteName={Routes.welcome}>
+        initialRouteName={Routes.paymentScreensTab}>
         <AuthStack.Screen
           name={Routes.welcome}
           component={WelcomeScreen}
@@ -36,8 +36,8 @@ export const AuthRouter = () => {
           component={VerificationScreen}
         />
         <AuthStack.Screen
-          name={Routes.paymentMethod}
-          component={PaymentMethodScreen}
+          name={Routes.paymentScreensTab}
+          component={PaymentScreensTab}
         />
       </AuthStack.Navigator>
     </SafeAreaView>

@@ -18,7 +18,7 @@ import {TTypesButton, getButtonTheme} from 'helpers/buttonTheme';
 
 type TSizes = 'small' | 'block' | 'large';
 type TPosition = 'left' | 'right' | 'center';
-interface IButton {
+export interface IButton {
   title: string;
   onPress?: () => void;
   disabled?: boolean;

@@ -78,7 +78,7 @@ export const LoginScreen: React.FC<
           largeTitle="Welcome!"
           leftIcon={ImageResources.chevronLeft}
           leftColor={colors.ink.base}
-          leftOnPress={() => {}}
+          leftOnPress={() => navigation.goBack()}
         />
         <View style={styles.inputs}>
           <InputControlled

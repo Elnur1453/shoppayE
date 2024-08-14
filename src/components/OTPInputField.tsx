@@ -8,6 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {red} from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 import {colors} from 'theme/colors';
 import {CommonStyles} from 'theme/commonStyles';
 import {normalize} from 'theme/metrics';
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
   } as TextStyle,
   textInput: {
     opacity: 0,
+    backgroundColor: colors.primary.base,
     ...StyleSheet.absoluteFillObject,
   } as TextStyle,
   cellView: {

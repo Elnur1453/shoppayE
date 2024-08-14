@@ -47,7 +47,7 @@ export const SignUpScreen: React.FC<
           largeTitle="Create Account"
           leftIcon={ImageResources.chevronLeft}
           leftColor={colors.ink.base}
-          leftOnPress={() => {}}
+          leftOnPress={() => navigation.goBack()}
         />
         <View style={styles.inputs}>
           <InputControlled
