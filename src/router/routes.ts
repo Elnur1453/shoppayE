@@ -10,4 +10,5 @@ export enum Routes {
   test = 'test',
   paymentScreensTab = 'paymentScreensTab',
   cards = 'cards',
+  addNewCard = 'addNewCard',
 }

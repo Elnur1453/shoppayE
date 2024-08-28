@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ViewStyle,
   TextStyle,
+  Pressable,
 } from 'react-native';
 import React from 'react';
 import {SafeMainProvider} from 'containers/SafeMainProvider';
@@ -22,9 +23,34 @@ import {TypographyStyles} from 'theme/typography';
 import {Table} from 'components/Table';
 import {SceneRendererProps} from 'react-native-tab-view';
 import {useNavigation} from '@react-navigation/native';
+import {useUserStore} from 'store/user/user.store';
+import {ICardInputFrom} from 'types/card.types';
+import {BankCard} from 'components/specific/BankCard';
 
 export const PaymentMethodScreen: React.FC<SceneRendererProps> = ({jumpTo}) => {
   const navigation = useNavigation();
+  const {
+    cards,
+    actions: {selectCard},
+  } = useUserStore(state => state);
+
+  const renderCards = (data: ICardInputFrom) => {
+    const onPress = () => {
+      selectCard(data.id);
+      jumpTo(Routes.cards);
+    };
+    return (
+      <Pressable>
+        <Table
+          type={'bank'}
+          key={data.id}
+          isPressable={true}
+          onPress={onPress}
+          text={`* * * * * * * * * * * * ${data.cardNumber.slice(-4)}`}
+        />
+      </Pressable>
+    );
+  };
   return (
     <SafeMainProvider>
       <NavBar
@@ -48,11 +74,12 @@ export const PaymentMethodScreen: React.FC<SceneRendererProps> = ({jumpTo}) => {
             />
           </View>
           <View style={styles.buttons}>
+            {cards.map(renderCards)}
             <Table
               type={'add'}
               isPressable={true}
               text={'Add another card'}
-              onPress={() => console.log('Add another card')}
+              onPress={() => jumpTo(Routes.cards)}
             />
           </View>
           <View style={styles.textContainer}>

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
 import {SafeMainProvider} from 'containers/SafeMainProvider';
 import {NavBar} from 'components/NavBar';
@@ -9,8 +9,22 @@ import {Routes} from 'router/routes';
 import {BankCard} from 'components/specific/BankCard';
 import {Button} from 'components/Button';
 import {normalize} from 'theme/metrics';
+import {useNavigation} from '@react-navigation/native';
+import {useUserStore} from 'store/user/user.store';
 
 export const CardsScreen: React.FC<SceneRendererProps> = ({jumpTo}) => {
+  const navigation = useNavigation();
+
+  const {
+    selectedCard,
+    actions: {selectCard},
+  } = useUserStore(state => state);
+
+  const onLeftPress = () => {
+    jumpTo(Routes.paymentMethod);
+    selectCard(null);
+  };
+
   return (
     <SafeMainProvider>
       <NavBar
@@ -21,25 +35,15 @@ export const CardsScreen: React.FC<SceneRendererProps> = ({jumpTo}) => {
       />
       <BankCard
         style={styles.card}
-        onPress={() => console.log('press')}
-        cardNumber="1234 1234 1234 1234"
-        holder="Elnur Namaz"
-        expiration="12/27"
-      />
-      <BankCard
-        style={styles.card}
-        onPress={() => console.log('press')}
-        cardNumber="-"
-        holder="-"
-        expiration="-/-"
-        empty={true}
-        disabled={true}
+        cardNumber={selectedCard?.cardNumber}
+        holder={selectedCard?.holder}
+        expiration={selectedCard?.expiration}
       />
       <Button
         title={'Add new card'}
         type={'outlined'}
         position={'center'}
-        // onPress={() => jumpTo(Routes.addNewCard)}
+        onPress={() => jumpTo(Routes.addNewCard)}
       />
     </SafeMainProvider>
   );
